@@ -1,0 +1,14 @@
+version: '2'
+services:
+  cajviewer:
+    image: boringcat/cajviewer
+    hostname: CAJViewer       # 容器主机名，为了好看
+    devices:
+      - /dev/fuse
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME:/HostHome
+    environment:
+      DISPLAY: unix$DISPLAY
